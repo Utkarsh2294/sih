@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 @import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
 
 @theme {
   --color-primary-50: #f0fdfa;
@@ -72,3 +73,6 @@ body {
 .dark .skeleton-shimmer::after {
   @apply via-white/10;
 }
+
+.vittsetu-map-pin { background: transparent; border: 0; }
+.vittsetu-map-pin span { display: block; width: 20px; height: 20px; border: 3px solid white; border-radius: 9999px 9999px 9999px 0; transform: rotate(-45deg); transition: transform .2s; }

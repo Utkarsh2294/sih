@@ -45,6 +45,16 @@ const useAppStore = create(
       setRecommenderResult: (result) => set({ recommenderResult: result, recommenderCompletedAt: new Date().toISOString() }),
       selectScheme: (schemeId) => set({ selectedSchemeId: schemeId }),
       resetRecommender: () => set({ recommenderInputs: null, recommenderResult: null, recommenderCompletedAt: null, selectedSchemeId: null }),
+
+      // --- Application Slice (Phase 3 hand-off; Phase 6 expands this) ---
+      selectedPartnerId: null,
+      applicationSchemeId: null,
+      applicationStartedAt: null,
+      selectPartnerForApplication: (partnerId, schemeId) => set({
+        selectedPartnerId: partnerId,
+        applicationSchemeId: schemeId,
+        applicationStartedAt: null,
+      }),
     }),
     {
       name: 'vittsetu-storage', // name of the item in the storage (must be unique)
