@@ -75,5 +75,100 @@
     "myApplications": "Application tracking dashboard coming soon.",
     "vittGyan": "Financial education content is being curated.",
     "profile": "Profile management features coming soon."
+  },
+  "recommender": {
+    "title": "Find the Right Scheme",
+    "subtitle": "Answer a few simple questions and we'll recommend the best government schemes for you",
+    "privacyNote": "This information is used only to check scheme eligibility and is not shared without your consent.",
+    "steps": {
+      "purpose": {
+        "title": "What do you need funding for?",
+        "business": "Business / Micro-Enterprise",
+        "education": "Education",
+        "vocational": "Vocational Training"
+      },
+      "details": {
+        "projectCostTitle": "What is your estimated project cost?",
+        "courseFeeTitle": "What is your estimated course fee?",
+        "educationLocationTitle": "Where will you be studying?",
+        "india": "Studying in India",
+        "abroad": "Studying Abroad",
+        "projectCostPlaceholder": "Enter amount in ₹",
+        "dontKnowYet": "I don't have this yet",
+        "dontKnowYetNote": "No worries — we'll ask about this at the partner branch instead."
+      },
+      "income": {
+        "title": "What is your annual family income?",
+        "placeholder": "Enter annual income in ₹"
+      },
+      "category": {
+        "title": "What best describes you?",
+        "selfEmployed": "Self-Employed",
+        "salaried": "Salaried",
+        "student": "Student"
+      },
+      "disability": {
+        "title": "Do you have a disability? (optional)",
+        "subtitle": "Some schemes offer additional concessions for persons with disabilities",
+        "yes": "Yes",
+        "no": "No",
+        "preferNotToSay": "Prefer not to say",
+        "skip": "Skip this step"
+      }
+    },
+    "results": {
+      "title": "Your Recommended Schemes",
+      "subtitle": "Based on your answers, here are the schemes that fit your needs",
+      "thinking": "Finding the best schemes for you...",
+      "whyThisFits": "Why this fits you",
+      "loanLimit": "Loan Limit",
+      "interestRate": "Interest Rate",
+      "moratorium": "Moratorium Period",
+      "tenure": "Repayment Tenure",
+      "ownContribution": "Own Contribution",
+      "months": "months",
+      "selectScheme": "Select this scheme",
+      "goToCalculator": "Calculate EMI",
+      "startOver": "Start Over",
+      "noResults": {
+        "title": "No Matching Schemes Found",
+        "subtitle": "Based on your inputs, we couldn't find an eligible scheme. Here's why:"
+      },
+      "confidence": {
+        "high": "Best Match",
+        "medium": "Also Eligible",
+        "low": "Possible Match"
+      }
+    }
+  },
+  "schemes": {
+    "micro_finance": {
+      "name": "Micro Finance Scheme",
+      "description": "Small loans up to ₹1.40 lakh for micro-enterprises at concessional rates"
+    },
+    "term_loan": {
+      "name": "Term Loan Scheme",
+      "description": "Loans from ₹1.40 lakh to ₹50 lakh for larger business ventures"
+    },
+    "education_loan_india": {
+      "name": "Educational Loan (India)",
+      "description": "Loans up to ₹10 lakh for higher education within India"
+    },
+    "education_loan_abroad": {
+      "name": "Educational Loan (Abroad)",
+      "description": "Loans up to ₹20 lakh for higher education abroad"
+    },
+    "udyam_nidhi": {
+      "name": "Udyam Nidhi Scheme",
+      "description": "Loans up to ₹10 lakh for business and vocational training ventures"
+    },
+    "aajeevika_microfinance": {
+      "name": "Aajeevika Microfinance Scheme",
+      "description": "Small loans up to ₹50,000 for the poorest of the poor"
+    },
+    "mahila_samridhi_yojana": {
+      "name": "Mahila Samridhi Yojana",
+      "description": "Special scheme for women entrepreneurs at the lowest interest rates"
+    }
   }
 }

@@ -34,6 +34,17 @@ const useAppStore = create(
 
       setUser: (name) => set({ name }),
       setOnboarded: (status) => set({ isOnboarded: status }),
+
+      // --- Recommender Slice ---
+      recommenderInputs: null,  // { purpose, projectCost, courseFee, educationLocation, annualFamilyIncome, applicantCategory, hasDisability, gender }
+      recommenderResult: null,  // Array of scheme results from getEligibleSchemes
+      recommenderCompletedAt: null,  // ISO timestamp
+      selectedSchemeId: null,  // The scheme the user picked from results
+
+      setRecommenderInputs: (inputs) => set({ recommenderInputs: inputs }),
+      setRecommenderResult: (result) => set({ recommenderResult: result, recommenderCompletedAt: new Date().toISOString() }),
+      selectScheme: (schemeId) => set({ selectedSchemeId: schemeId }),
+      resetRecommender: () => set({ recommenderInputs: null, recommenderResult: null, recommenderCompletedAt: null, selectedSchemeId: null }),
     }),
     {
       name: 'vittsetu-storage', // name of the item in the storage (must be unique)
