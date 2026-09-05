@@ -28,6 +28,10 @@ const useAppStore = create(
       setLanguage: (lang) => set({ language: lang }),
       setFontScale: (scale) => set({ fontScale: scale }),
 
+      // Assistant preferences (Phase 4)
+      assistantMuted: false,
+      setAssistantMuted: (assistantMuted) => set({ assistantMuted }),
+
       // --- User Slice ---
       name: null,
       isOnboarded: false,
@@ -55,6 +59,13 @@ const useAppStore = create(
         applicationSchemeId: schemeId,
         applicationStartedAt: null,
       }),
+
+      // DPDP-style consent ledger (Phase 4). Real providers replace only the service adapter.
+      consentHistory: [],
+      addConsent: (entry) => set((state) => ({ consentHistory: [...state.consentHistory, entry] })),
+      revokeConsent: (id) => set((state) => ({
+        consentHistory: state.consentHistory.map((entry) => entry.id === id ? { ...entry, revoked: true } : entry),
+      })),
     }),
     {
       name: 'vittsetu-storage', // name of the item in the storage (must be unique)

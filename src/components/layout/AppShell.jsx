@@ -7,6 +7,7 @@ import Sidebar from './Sidebar';
 import BottomNav from './BottomNav';
 import Footer from './Footer';
 import useAppStore from '../../store/useAppStore';
+import AssistantLauncher from '../assistant/AssistantLauncher';
 
 const AppShell = () => {
   const location = useLocation();
@@ -60,6 +61,7 @@ const AppShell = () => {
       </div>
       
       <BottomNav />
+      <AssistantLauncher />
       
       <ToastContainer />
     </div>

@@ -10,6 +10,7 @@ import EmiSummaryCard from '../components/calculator/EmiSummaryCard';
 import AmortizationChart from '../components/calculator/AmortizationChart';
 import AffordabilityBanner from '../components/calculator/AffordabilityBanner';
 import StickyEmiBar from '../components/calculator/StickyEmiBar';
+import { Link } from 'react-router-dom';
 
 // Import engine functions (assuming they exist or will be provided)
 import { 
@@ -249,6 +250,11 @@ const Calculator = () => {
               ratio={affordability.ratio} 
               income={income} 
             />
+            <Card className="p-4 border-primary-200 bg-primary-50/60 dark:border-primary-800 dark:bg-primary-950/30">
+              <p className="font-semibold text-primary-950 dark:text-primary-100">Verify income without hunting for paperwork</p>
+              <p className="mt-1 text-sm text-primary-900 dark:text-primary-200">Share only the data you choose through the mocked Account Aggregator and DigiLocker flow.</p>
+              <Link to="/consent" className="mt-3 inline-block text-sm font-bold text-primary-700 underline dark:text-primary-300">Verify in 10 seconds</Link>
+            </Card>
 
             <div className="flex flex-col gap-3">
               <Button onClick={handleShare} className="w-full" variant="primary">
