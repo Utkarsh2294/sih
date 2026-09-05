@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Home",
+    "findScheme": "Find Scheme",
+    "calculator": "Calculator",
+    "findPartner": "Find Partner",
+    "myApplications": "My Applications",
+    "vittGyan": "VittGyan (Financial Education)",
+    "profile": "Profile"
+  },
+  "pages": {
+    "home": {
+      "title": "Welcome to VittSetu",
+      "subtitle": "Your bridge to financial inclusion"
+    },
+    "findScheme": {
+      "title": "Find the Right Scheme",
+      "subtitle": "Discover government schemes tailored for you"
+    },
+    "calculator": {
+      "title": "Financial Calculators",
+      "subtitle": "Plan your finances with our easy-to-use calculators"
+    },
+    "findPartner": {
+      "title": "Find a Banking Partner",
+      "subtitle": "Locate banks and financial institutions near you"
+    },
+    "myApplications": {
+      "title": "My Applications",
+      "subtitle": "Track your scheme and loan applications"
+    },
+    "vittGyan": {
+      "title": "VittGyan",
+      "subtitle": "Learn about finance, savings, and investments"
+    },
+    "profile": {
+      "title": "My Profile",
+      "subtitle": "Manage your personal information and preferences"
+    }
+  },
+  "common": {
+    "appName": "VittSetu",
+    "tagline": "Your bridge to financial inclusion",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "comingSoon": "Coming Soon",
+    "learnMore": "Learn More",
+    "goBack": "Go Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "noResults": "No results found",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "language": "Language",
+    "fontSize": "Font Size",
+    "accessibility": "Accessibility"
+  },
+  "footer": {
+    "copyright": "© 2026 VittSetu. All rights reserved.",
+    "madeWith": "Made with care for citizens",
+    "disclaimer": "This is a government-backed platform for financial inclusion."
+  },
+  "placeholders": {
+    "home": "Home page content coming soon.",
+    "findScheme": "Scheme discovery features coming soon.",
+    "calculator": "Calculators are currently under development.",
+    "findPartner": "Partner locator will be available shortly.",
+    "myApplications": "Application tracking dashboard coming soon.",
+    "vittGyan": "Financial education content is being curated.",
+    "profile": "Profile management features coming soon."
+  }
+}
