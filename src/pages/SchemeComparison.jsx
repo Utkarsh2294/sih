@@ -1,0 +1,15 @@
+import React, { useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import schemes from '../data/schemes.config.json';
+import { buildComparisonRows } from '../engine/schemeComparison';
+import Card from '../components/ui/Card';
+
+const SchemeComparison = () => {
+  const [params] = useSearchParams(); const initial = params.get('ids')?.split(',').filter(Boolean) || [];
+  const [selectedIds, setSelectedIds] = useState(initial);
+  const selected = useMemo(() => schemes.filter((scheme) => selectedIds.includes(scheme.id)), [selectedIds]);
+  const rows = useMemo(() => buildComparisonRows(selected), [selected]);
+  const toggle = (id) => setSelectedIds((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
+  return <div className="mx-auto max-w-6xl space-y-6 py-4"><div><p className="text-sm font-semibold text-primary-700 dark:text-primary-300">Make an informed choice</p><h1 className="mt-1 text-3xl font-bold dark:text-white">Compare schemes</h1><p className="mt-2 text-slate-600 dark:text-slate-300">Compare the terms that matter before choosing a scheme. Rates and terms shown here are illustrative scheme configuration data.</p></div><Card className="p-4"><h2 className="font-bold dark:text-white">Schemes to compare</h2><div className="mt-3 flex flex-wrap gap-3">{schemes.map((scheme) => <label className="flex min-h-11 items-center gap-2 rounded-lg border border-slate-200 px-3 text-sm dark:border-slate-700 dark:text-slate-200" key={scheme.id}><input type="checkbox" checked={selectedIds.includes(scheme.id)} onChange={() => toggle(scheme.id)} className="h-4 w-4 accent-primary-600" />{scheme.name}</label>)}</div></Card>{selected.length ? <><div className="hidden overflow-x-auto rounded-2xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800 md:block"><table className="w-full border-collapse text-left"><thead><tr><th className="sticky left-0 bg-white p-4 text-sm dark:bg-slate-800">Feature</th>{selected.map((scheme) => <th className="min-w-44 p-4 text-sm dark:text-white" key={scheme.id}>{scheme.name}</th>)}</tr></thead><tbody>{rows.map((row) => <tr className="border-t border-slate-100 dark:border-slate-700" key={row.label}><th className="sticky left-0 bg-white p-4 text-sm font-semibold dark:bg-slate-800 dark:text-white">{row.label}</th>{row.values.map((value, index) => <td className="p-4 text-sm text-slate-600 dark:text-slate-300" key={`${row.label}-${index}`}>{value}</td>)}</tr>)}</tbody></table></div><div className="space-y-4 md:hidden">{selected.map((scheme, index) => <Card className="p-5" key={scheme.id}><h2 className="text-xl font-bold dark:text-white">{scheme.name}</h2><dl className="mt-4 space-y-3">{rows.map((row) => <div className="flex justify-between gap-4" key={row.label}><dt className="text-sm text-slate-500">{row.label}</dt><dd className="text-right text-sm font-semibold dark:text-slate-200">{row.values[index]}</dd></div>)}</dl></Card>)}</div></> : <Card className="p-8 text-center text-slate-600 dark:text-slate-300">Select at least one scheme above to compare it.</Card>}</div>;
+};
+export default SchemeComparison;

@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'framer-motion';
-import { CheckCircle2, Info, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SkeletonLoader from '../ui/SkeletonLoader';
 import Card from '../ui/Card';
 import EmptyState from '../ui/EmptyState';
 import Button from '../ui/Button';
 import { explainRecommendation, explainNoMatch } from '../../services/explainService';
+import ExplainabilityPanel from '../ExplainabilityPanel';
 
 const SchemeCard = ({ scheme, inputs, onSelect, index }) => {
   const { t } = useTranslation();
-  const [expanded, setExpanded] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   const explanation = explainRecommendation(inputs, scheme);
@@ -88,26 +89,7 @@ const SchemeCard = ({ scheme, inputs, onSelect, index }) => {
             </div>
           </div>
 
-          <div className="mt-4">
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="flex items-center text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 focus:outline-none"
-            >
-              <Info size={16} className="mr-2" />
-              {t('recommender.results.whyFits', 'Why this fits you')}
-              {expanded ? <ChevronUp size={16} className="ml-1" /> : <ChevronDown size={16} className="ml-1" />}
-            </button>
-            
-            {expanded && (
-              <motion.div 
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                className="mt-3 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg text-sm text-slate-700 dark:text-slate-300"
-              >
-                {explanation}
-              </motion.div>
-            )}
-          </div>
+          <div className="mt-4"><ExplainabilityPanel verdict="eligible" reasonText={explanation} /></div>
         </div>
       </Card>
     </motion.div>
@@ -202,6 +184,7 @@ export default function RecommenderResults({ inputs, results, onStartOver, onSel
         <Button onClick={onStartOver} variant="outline">
           {t('recommender.results.startOver', 'Start Over')}
         </Button>
+        <Link className="ml-4 inline-block text-sm font-semibold text-primary-700 underline dark:text-primary-300" to={`/compare-schemes?ids=${results.map((scheme) => scheme.schemeId).join(',')}`}>Compare all eligible schemes</Link>
       </div>
     </div>
   );

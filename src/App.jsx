@@ -14,6 +14,8 @@ const Applications = lazy(() => import('./pages/Applications'));
 const VittGyan = lazy(() => import('./pages/VittGyan'));
 const Profile = lazy(() => import('./pages/Profile'));
 const ConsentFlow = lazy(() => import('./pages/ConsentFlow'));
+const SchemeComparison = lazy(() => import('./pages/SchemeComparison'));
+const PartnerReport = lazy(() => import('./pages/PartnerReport'));
 
 // Minimal skeleton loader for Suspense fallback
 const SkeletonLoader = () => (
@@ -53,6 +55,8 @@ const App = () => {
             <Route path="/vittgyan" element={<VittGyan />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/consent" element={<ConsentFlow />} />
+            <Route path="/compare-schemes" element={<SchemeComparison />} />
+            <Route path="/partner-locator/:partnerId/report" element={<PartnerReport />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
