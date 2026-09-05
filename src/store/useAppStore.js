@@ -59,6 +59,20 @@ const useAppStore = create(
         applicationSchemeId: schemeId,
         applicationStartedAt: null,
       }),
+      applications: [],
+      notifications: [],
+      createApplication: ({ schemeId, partnerId, documents }) => {
+        const now = new Date().toISOString(); const id = `APP-${Date.now().toString().slice(-7)}`;
+        set((state) => ({ applications: [...state.applications, { id, schemeId, partnerId, stage: 'submitted', stageHistory: [{ stage: 'submitted', changedAt: now }], documents, grievances: [], createdAt: now }], notifications: [{ id: `note-${Date.now()}`, read: false, createdAt: now, text: `Your application ${id} was submitted.` }, ...state.notifications] }));
+        return id;
+      },
+      advanceApplication: (id) => set((state) => {
+        const stages = ['submitted', 'partner-review', 'verification', 'sanctioned', 'disbursed']; const application = state.applications.find((item) => item.id === id); const next = application && stages[stages.indexOf(application.stage) + 1]; if (!next) return state;
+        const now = new Date().toISOString(); return { applications: state.applications.map((item) => item.id === id ? { ...item, stage: next, stageHistory: [...item.stageHistory, { stage: next, changedAt: now }] } : item), notifications: [{ id: `note-${Date.now()}`, read: false, createdAt: now, text: `Application ${id} moved to ${next.replace('-', ' ')}.` }, ...state.notifications] };
+      }),
+      updateDocument: (applicationId, documentId, status) => set((state) => ({ applications: state.applications.map((item) => item.id === applicationId ? { ...item, documents: item.documents.map((document) => document.id === documentId ? { ...document, status } : document) } : item) })),
+      addGrievance: (applicationId, grievance) => set((state) => ({ applications: state.applications.map((item) => item.id === applicationId ? { ...item, grievances: [...item.grievances, grievance] } : item) })),
+      markNotificationsRead: () => set((state) => ({ notifications: state.notifications.map((item) => ({ ...item, read: true })) })),
 
       // DPDP-style consent ledger (Phase 4). Real providers replace only the service adapter.
       consentHistory: [],
