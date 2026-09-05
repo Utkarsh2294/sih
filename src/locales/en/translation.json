@@ -170,5 +170,53 @@
       "name": "Mahila Samridhi Yojana",
       "description": "Special scheme for women entrepreneurs at the lowest interest rates"
     }
+  },
+  "calculator": {
+    "title": "Financial Calculator",
+    "subtitle": "Plan your finances with our scheme-aware calculator",
+    "selectScheme": "Select a Scheme",
+    "selectSchemeNote": "Choose a scheme to see the applicable rates and limits",
+    "prefilledNote": "Pre-filled from your scheme recommendation",
+    "projectCost": "Project Cost / Loan Amount",
+    "downPayment": "Down Payment (Own Contribution)",
+    "tenure": "Repayment Tenure",
+    "tenureMonths": "{{count}} months",
+    "tenureYears": "{{years}} years {{months}} months",
+    "interestRate": "Interest Rate",
+    "emi": {
+      "title": "Your Estimated EMI",
+      "perMonth": "per month",
+      "totalInterest": "Total Interest",
+      "totalPayable": "Total Amount Payable",
+      "loanAmount": "Loan Amount (after down payment)"
+    },
+    "moratorium": {
+      "title": "Moratorium Period",
+      "months": "{{count}} months",
+      "capitalized": "Interest added to principal (no payments during this period)",
+      "interestOnly": "Interest-only payments during this period",
+      "note": "Regular EMI payments begin after the moratorium period"
+    },
+    "affordability": {
+      "ok": "This looks manageable based on your stated income.",
+      "caution": "This EMI is on the higher side relative to your income — consider a longer tenure or smaller loan amount.",
+      "high": "This EMI may be difficult to manage. We recommend reducing the loan amount or increasing the tenure.",
+      "ratio": "EMI-to-Income Ratio: {{ratio}}%"
+    },
+    "chart": {
+      "title": "Repayment Schedule",
+      "month": "Month",
+      "principal": "Principal",
+      "interest": "Interest",
+      "balance": "Outstanding Balance",
+      "moratoriumLabel": "Moratorium",
+      "emiLabel": "EMI Period"
+    },
+    "export": {
+      "download": "Download Repayment Schedule",
+      "share": "Share via WhatsApp",
+      "shareText": "My VittSetu EMI Calculation:\nScheme: {{scheme}}\nLoan: {{loan}}\nEMI: {{emi}}/month\nTenure: {{tenure}} months\nInterest Rate: {{rate}}%\nTotal Payable: {{total}}"
+    },
+    "noScheme": "No scheme selected. Please choose one below or go to the Scheme Recommender first."
   }
 }
