@@ -6,6 +6,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
 import useAppStore from '../../store/useAppStore';
 import AccessibilityPanel from './AccessibilityPanel';
+import DemoResetButton from '../DemoResetButton';
 
 const Header = () => {
   const { t } = useTranslation();
@@ -30,6 +31,7 @@ const Header = () => {
         
         <div className="flex items-center space-x-1 md:space-x-3">
           <LanguageSwitcher />
+          <div className="hidden lg:block"><DemoResetButton /></div>
           <label className="hidden items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-300 sm:flex">
             <span>View</span>
             <select value={role} onChange={(event) => setRole(event.target.value)} className="min-h-9 rounded-lg border border-slate-300 bg-white px-2 text-slate-800 dark:border-slate-600 dark:bg-slate-800 dark:text-white" aria-label="Switch prototype role">

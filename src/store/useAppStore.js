@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import seedPartners from '../data/partners.mock.json';
+import { demoState } from '../data/demoSeed';
 
 /**
  * Zustand store for VittSetu application state.
@@ -137,6 +138,18 @@ const useAppStore = create(
       addConsent: (entry) => set((state) => ({ consentHistory: [...state.consentHistory, entry] })),
       revokeConsent: (id) => set((state) => ({
         consentHistory: state.consentHistory.map((entry) => entry.id === id ? { ...entry, revoked: true } : entry),
+      })),
+      resetDemoData: () => set((state) => ({
+        ...state,
+        ...demoState,
+        theme: state.theme,
+        language: state.language,
+        fontScale: state.fontScale,
+        highContrast: state.highContrast,
+        dyslexiaFont: state.dyslexiaFont,
+        reduceMotion: state.reduceMotion,
+        ttsEnabled: state.ttsEnabled,
+        consentHistory: [],
       })),
     }),
     {
