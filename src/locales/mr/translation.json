@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "मुख्यपृष्ठ",
+    "findScheme": "योजना शोधा",
+    "calculator": "कॅल्क्युलेटर",
+    "findPartner": "भागीदार शोधा",
+    "myApplications": "माझे अर्ज",
+    "vittGyan": "वित्तज्ञान",
+    "profile": "प्रोफाइल"
+  },
+  "pages": {
+    "home": { "title": "वित्तसेतूमध्ये स्वागत", "subtitle": "आर्थिक समावेशनासाठी तुमचा सेतू" },
+    "findScheme": { "title": "योग्य योजना शोधा", "subtitle": "तुमच्यासाठी योग्य सरकारी योजना शोधा" },
+    "calculator": { "title": "आर्थिक कॅल्क्युलेटर", "subtitle": "सोप्या गणनेने तुमची योजना करा" },
+    "findPartner": { "title": "बँकिंग भागीदार शोधा", "subtitle": "जवळचे बँक आणि वित्तीय संस्थान शोधा" },
+    "myApplications": { "title": "माझे अर्ज", "subtitle": "तुमचे अर्ज ट्रॅक करा" },
+    "vittGyan": { "title": "वित्तज्ञान", "subtitle": "वित्त, बचत आणि कर्जाबद्दल शिका" },
+    "profile": { "title": "माझे प्रोफाइल", "subtitle": "माहिती आणि प्राधान्ये सांभाळा" }
+  },
+  "common": {
+    "appName": "वित्तसेतू",
+    "tagline": "आर्थिक समावेशनासाठी तुमचा सेतू",
+    "loading": "लोड होत आहे...",
+    "error": "त्रुटी आली",
+    "comingSoon": "लवकरच येत आहे",
+    "learnMore": "अधिक जाणून घ्या",
+    "goBack": "मागे जा",
+    "next": "पुढे",
+    "previous": "मागे",
+    "submit": "सबमिट",
+    "cancel": "रद्द",
+    "close": "बंद",
+    "save": "जतन करा",
+    "delete": "हटवा",
+    "search": "शोधा",
+    "filter": "फिल्टर",
+    "noResults": "निकाल सापडले नाहीत",
+    "darkMode": "डार्क मोड",
+    "lightMode": "लाईट मोड",
+    "language": "भाषा",
+    "fontSize": "अक्षर आकार",
+    "accessibility": "सुलभता"
+  },
+  "footer": {
+    "copyright": "© 2026 वित्तसेतू. सर्व हक्क राखीव.",
+    "madeWith": "नागरिकांसाठी काळजीपूर्वक तयार",
+    "disclaimer": "ही आर्थिक समावेशनासाठीची प्रोटोटाइप सेवा आहे."
+  },
+  "recommender": {
+    "title": "योग्य योजना शोधा",
+    "subtitle": "काही सोपे प्रश्न उत्तर द्या आणि आम्ही योजना सुचवू",
+    "privacyNote": "ही माहिती फक्त पात्रता तपासण्यासाठी वापरली जाते.",
+    "results": { "title": "सुचवलेल्या योजना", "subtitle": "तुमच्या उत्तरांवर आधारित योजना", "thinking": "योग्य योजना शोधत आहोत...", "whyThisFits": "ही योजना का योग्य आहे", "loanLimit": "कर्ज मर्यादा", "interestRate": "व्याजदर", "moratorium": "स्थगिती", "tenure": "परतफेड कालावधी", "ownContribution": "स्वतःचा हिस्सा", "months": "महिने", "selectScheme": "ही योजना निवडा", "goToCalculator": "EMI मोजा", "startOver": "पुन्हा सुरू करा" }
+  },
+  "partnerLocator": {
+    "eyebrow": "क्षमता-आधारित मार्गदर्शन",
+    "title": "योग्य भागीदार शोधा",
+    "subtitle": "आम्ही उपलब्धता आणि अंतर दोन्ही पाहून भागीदार सुचवतो.",
+    "scheme": "योजना",
+    "chooseScheme": "खाली योजना निवडा",
+    "schemePicker": "तुम्हाला वापरायची योजना",
+    "selectScheme": "योजना निवडा",
+    "district": "जिल्हा",
+    "useLocation": "माझे स्थान वापरा",
+    "manual": "निवडलेल्या जिल्ह्यातील भागीदार दाखवत आहोत",
+    "locating": "स्थान शोधत आहोत...",
+    "located": "तुमच्या जवळचे भागीदार दाखवत आहोत",
+    "denied": "स्थान परवानगी उपलब्ध नाही.",
+    "unavailable": "या डिव्हाइसवर स्थान उपलब्ध नाही.",
+    "recommended": "सुचवलेले",
+    "available": "उपलब्ध पण दूर",
+    "lowCapacity": "सध्या कमी क्षमता",
+    "unknown": "क्षमता डेटा उपलब्ध नाही",
+    "viewList": "यादी पहा",
+    "viewMap": "नकाशा पहा",
+    "turnaround": "सुमारे {{days}} दिवस",
+    "call": "कॉल करा",
+    "directions": "दिशा मिळवा",
+    "selectPromptTitle": "भागीदार पाहण्यासाठी योजना निवडा",
+    "selectPromptDesc": "फक्त अधिकृत भागीदार येथे दिसतील."
+  },
+  "calculator": {
+    "title": "आर्थिक कॅल्क्युलेटर",
+    "subtitle": "योजनेनुसार EMI मोजा",
+    "selectScheme": "योजना निवडा",
+    "prefilledNote": "तुमच्या शिफारसीतून आधीच भरलेले",
+    "scheduleChart": "परतफेड वेळापत्रक",
+    "shareWa": "WhatsApp वर शेअर करा",
+    "downloadPrint": "प्रिंट करा"
+  }
+}

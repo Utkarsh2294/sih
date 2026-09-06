@@ -11,6 +11,7 @@ import AmortizationChart from '../components/calculator/AmortizationChart';
 import AffordabilityBanner from '../components/calculator/AffordabilityBanner';
 import StickyEmiBar from '../components/calculator/StickyEmiBar';
 import { Link } from 'react-router-dom';
+import ReadAloudButton from '../components/ReadAloudButton';
 
 // Import engine functions (assuming they exist or will be provided)
 import { 
@@ -124,7 +125,7 @@ const Calculator = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">{t('calculator.title', 'EMI Calculator')}</h1>
+      <div className="mb-6 flex items-center justify-between gap-3"><h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('calculator.title', 'EMI Calculator')}</h1><ReadAloudButton text={scheme ? `EMI calculator for ${scheme.name}. Estimated EMI is ${formatINR(emi)} per month.` : 'EMI calculator. Select a scheme to calculate your repayment.'} /></div>
       
       {!scheme && (
         <SchemePicker 

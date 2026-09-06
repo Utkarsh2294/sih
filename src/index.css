@@ -39,6 +39,19 @@ html {
 body {
   @apply text-slate-900 bg-slate-50 font-sans transition-colors duration-200;
 }
+.font-readable {
+  font-family: "Atkinson Hyperlegible", "Noto Sans", "Noto Sans Devanagari", system-ui, sans-serif;
+}
+.contrast-more {
+  filter: contrast(1.12);
+}
+.contrast-more button,
+.contrast-more a,
+.contrast-more input,
+.contrast-more select,
+.contrast-more textarea {
+  @apply ring-1 ring-slate-500;
+}
 .dark body {
   @apply text-slate-50 bg-slate-900;
 }

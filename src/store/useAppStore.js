@@ -22,6 +22,12 @@ const useAppStore = create(
       fontScale: 1,
       role: 'citizen',
       showTrustSignals: true,
+      isOnline: typeof navigator === 'undefined' ? true : navigator.onLine,
+      offlineBannerDismissed: false,
+      highContrast: false,
+      dyslexiaFont: false,
+      reduceMotion: false,
+      ttsEnabled: true,
 
       toggleTheme: () =>
         set((state) => ({
@@ -32,6 +38,12 @@ const useAppStore = create(
       setFontScale: (scale) => set({ fontScale: scale }),
       setRole: (role) => set({ role }),
       setShowTrustSignals: (showTrustSignals) => set({ showTrustSignals }),
+      setOnlineStatus: (isOnline) => set({ isOnline, offlineBannerDismissed: isOnline ? false : undefined }),
+      dismissOfflineBanner: () => set({ offlineBannerDismissed: true }),
+      setHighContrast: (highContrast) => set({ highContrast }),
+      setDyslexiaFont: (dyslexiaFont) => set({ dyslexiaFont }),
+      setReduceMotion: (reduceMotion) => set({ reduceMotion }),
+      setTtsEnabled: (ttsEnabled) => set({ ttsEnabled }),
 
       // Assistant preferences (Phase 4)
       assistantMuted: false,
@@ -67,6 +79,7 @@ const useAppStore = create(
       }),
       applications: [],
       notifications: [],
+      queuedGrievances: [],
       createApplication: ({ schemeId, partnerId, documents }) => {
         const now = new Date().toISOString(); const id = `APP-${Date.now().toString().slice(-7)}`;
         set((state) => ({ applications: [...state.applications, { id, schemeId, partnerId, stage: 'pending-signature', stageHistory: [{ stage: 'pending-signature', changedAt: now }], documents, grievances: [], signed: false, createdAt: now }], notifications: [{ id: `note-${Date.now()}`, read: false, createdAt: now, text: `Your application ${id} was created and is waiting for demo e-Sign.` }, ...state.notifications] }));
@@ -85,6 +98,16 @@ const useAppStore = create(
       }),
       updateDocument: (applicationId, documentId, status) => set((state) => ({ applications: state.applications.map((item) => item.id === applicationId ? { ...item, documents: item.documents.map((document) => document.id === documentId ? { ...document, status } : document) } : item) })),
       addGrievance: (applicationId, grievance) => set((state) => ({ applications: state.applications.map((item) => item.id === applicationId ? { ...item, grievances: [...item.grievances, grievance] } : item) })),
+      queueGrievance: (applicationId, grievance) => set((state) => ({ queuedGrievances: [...state.queuedGrievances, { applicationId, grievance }] })),
+      flushQueuedGrievances: () => set((state) => {
+        if (!state.queuedGrievances.length) return state;
+        const queued = state.queuedGrievances;
+        return {
+          queuedGrievances: [],
+          applications: state.applications.map((item) => ({ ...item, grievances: [...item.grievances, ...queued.filter((entry) => entry.applicationId === item.id).map((entry) => ({ ...entry.grievance, status: 'Open' }))] })),
+          notifications: [{ id: `note-${Date.now()}`, read: false, createdAt: new Date().toISOString(), text: 'Your offline grievance has now been sent.' }, ...state.notifications],
+        };
+      }),
       markNotificationsRead: () => set((state) => ({ notifications: state.notifications.map((item) => ({ ...item, read: true })) })),
       updatePartnerCapacity: (partnerId, capacityStatus) => set((state) => ({
         partners: state.partners.map((partner) => partner.id === partnerId ? { ...partner, healthSignal: { ...(partner.healthSignal || {}), capacityStatus } } : partner),

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Home as HomeIcon, Search, Calculator, MapPin, ArrowRight } from 'lucide-react';
+import { Home as HomeIcon, Search, Calculator, MapPin, ArrowRight, PhoneCall } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Card from '../components/ui/Card';
+import ReadAloudButton from '../components/ReadAloudButton';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -62,13 +63,17 @@ const Home = () => {
         <div className="inline-flex items-center justify-center p-3 bg-primary-100 dark:bg-primary-900/50 rounded-full mb-4">
           <HomeIcon className="w-8 h-8 text-primary-700 dark:text-primary-300" />
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center"><h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
           {t('home.welcome.title', 'Welcome to VittSetu')}
-        </h1>
+        </h1><ReadAloudButton text={t('home.welcome.description', 'Your unified platform for discovering government schemes, financial literacy, and seamless access to financial services.')} /></div>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
           {t('home.welcome.description', 'Your unified platform for discovering government schemes, financial literacy, and seamless access to financial services.')}
         </p>
       </div>
+      <Link to="/feature-phone-help" className="flex items-center justify-between gap-3 rounded-2xl border border-accent-200 bg-accent-50 p-4 text-accent-950 hover:border-accent-400 dark:border-accent-800 dark:bg-accent-950/30 dark:text-accent-100">
+        <span className="flex items-center gap-3"><PhoneCall className="h-5 w-5" /><span className="font-bold">No smartphone? See the planned missed-call help flow.</span></span>
+        <ArrowRight className="h-5 w-5" />
+      </Link>
 
       <div>
         <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4 px-2">

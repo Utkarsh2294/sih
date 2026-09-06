@@ -33,9 +33,21 @@ export default defineConfig({
           },
         ],
       },
-      // Offline caching strategies will be configured in Phase 9
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff2}'],
+        navigateFallback: '/index.html',
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.destination === 'document' || request.destination === 'script' || request.destination === 'style',
+            handler: 'StaleWhileRevalidate',
+            options: { cacheName: 'vittsetu-app-shell' },
+          },
+          {
+            urlPattern: ({ url }) => url.pathname.includes('schemes.config') || url.pathname.includes('SchemeRecommender') || url.pathname.includes('Calculator'),
+            handler: 'CacheFirst',
+            options: { cacheName: 'vittsetu-offline-flows' },
+          },
+        ],
       },
     }),
   ],

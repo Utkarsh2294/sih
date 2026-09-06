@@ -5,10 +5,12 @@ import { Bell, Landmark, Settings } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
 import useAppStore from '../../store/useAppStore';
+import AccessibilityPanel from './AccessibilityPanel';
 
 const Header = () => {
   const { t } = useTranslation();
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showAccessibility, setShowAccessibility] = useState(false);
   const notifications = useAppStore((state) => state.notifications);
   const markNotificationsRead = useAppStore((state) => state.markNotificationsRead);
   const role = useAppStore((state) => state.role);
@@ -44,12 +46,16 @@ const Header = () => {
             </button>
             {showNotifications && <div className="absolute right-0 mt-2 w-80 rounded-xl border border-slate-200 bg-white p-3 shadow-xl dark:border-slate-700 dark:bg-slate-900"><p className="px-1 pb-2 text-sm font-bold dark:text-white">Updates</p>{notifications.length ? <div className="max-h-72 space-y-2 overflow-y-auto">{notifications.map((item) => <div className="rounded-lg bg-slate-50 p-3 text-sm text-slate-700 dark:bg-slate-800 dark:text-slate-200" key={item.id}>{item.text}<p className="mt-1 text-xs text-slate-500">{new Date(item.createdAt).toLocaleString()}</p></div>)}</div> : <p className="px-1 py-4 text-sm text-slate-500">No updates yet.</p>}</div>}
           </div>
-          <button
-            className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
-            aria-label={t('layout.header.accessibility', 'Accessibility Settings')}
-          >
-            <Settings className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-          </button>
+          <div className="relative">
+            <button
+              onClick={() => setShowAccessibility(!showAccessibility)}
+              className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+              aria-label={t('layout.header.accessibility', 'Accessibility Settings')}
+            >
+              <Settings className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            </button>
+            {showAccessibility && <AccessibilityPanel onClose={() => setShowAccessibility(false)} />}
+          </div>
         </div>
       </div>
     </header>
