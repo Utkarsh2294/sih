@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import seedPartners from '../data/partners.mock.json';
 
 /**
  * Zustand store for VittSetu application state.
@@ -19,6 +20,8 @@ const useAppStore = create(
       theme: 'light',
       language: 'en',
       fontScale: 1,
+      role: 'citizen',
+      showTrustSignals: true,
 
       toggleTheme: () =>
         set((state) => ({
@@ -27,6 +30,8 @@ const useAppStore = create(
 
       setLanguage: (lang) => set({ language: lang }),
       setFontScale: (scale) => set({ fontScale: scale }),
+      setRole: (role) => set({ role }),
+      setShowTrustSignals: (showTrustSignals) => set({ showTrustSignals }),
 
       // Assistant preferences (Phase 4)
       assistantMuted: false,
@@ -54,6 +59,7 @@ const useAppStore = create(
       selectedPartnerId: null,
       applicationSchemeId: null,
       applicationStartedAt: null,
+      partners: seedPartners,
       selectPartnerForApplication: (partnerId, schemeId) => set({
         selectedPartnerId: partnerId,
         applicationSchemeId: schemeId,
@@ -63,16 +69,45 @@ const useAppStore = create(
       notifications: [],
       createApplication: ({ schemeId, partnerId, documents }) => {
         const now = new Date().toISOString(); const id = `APP-${Date.now().toString().slice(-7)}`;
-        set((state) => ({ applications: [...state.applications, { id, schemeId, partnerId, stage: 'submitted', stageHistory: [{ stage: 'submitted', changedAt: now }], documents, grievances: [], createdAt: now }], notifications: [{ id: `note-${Date.now()}`, read: false, createdAt: now, text: `Your application ${id} was submitted.` }, ...state.notifications] }));
+        set((state) => ({ applications: [...state.applications, { id, schemeId, partnerId, stage: 'pending-signature', stageHistory: [{ stage: 'pending-signature', changedAt: now }], documents, grievances: [], signed: false, createdAt: now }], notifications: [{ id: `note-${Date.now()}`, read: false, createdAt: now, text: `Your application ${id} was created and is waiting for demo e-Sign.` }, ...state.notifications] }));
         return id;
       },
       advanceApplication: (id) => set((state) => {
-        const stages = ['submitted', 'partner-review', 'verification', 'sanctioned', 'disbursed']; const application = state.applications.find((item) => item.id === id); const next = application && stages[stages.indexOf(application.stage) + 1]; if (!next) return state;
+        const stages = ['pending-signature', 'submitted', 'partner-review', 'verification', 'sanctioned', 'disbursed']; const application = state.applications.find((item) => item.id === id); const next = application && stages[stages.indexOf(application.stage) + 1]; if (!next) return state;
         const now = new Date().toISOString(); return { applications: state.applications.map((item) => item.id === id ? { ...item, stage: next, stageHistory: [...item.stageHistory, { stage: next, changedAt: now }] } : item), notifications: [{ id: `note-${Date.now()}`, read: false, createdAt: now, text: `Application ${id} moved to ${next.replace('-', ' ')}.` }, ...state.notifications] };
+      }),
+      signApplication: (id) => set((state) => {
+        const now = new Date().toISOString();
+        return {
+          applications: state.applications.map((item) => item.id === id ? { ...item, signed: true, stage: 'submitted', stageHistory: [...item.stageHistory, { stage: 'submitted', changedAt: now }] } : item),
+          notifications: [{ id: `note-${Date.now()}`, read: false, createdAt: now, text: `Application ${id} was signed and submitted.` }, ...state.notifications],
+        };
       }),
       updateDocument: (applicationId, documentId, status) => set((state) => ({ applications: state.applications.map((item) => item.id === applicationId ? { ...item, documents: item.documents.map((document) => document.id === documentId ? { ...document, status } : document) } : item) })),
       addGrievance: (applicationId, grievance) => set((state) => ({ applications: state.applications.map((item) => item.id === applicationId ? { ...item, grievances: [...item.grievances, grievance] } : item) })),
       markNotificationsRead: () => set((state) => ({ notifications: state.notifications.map((item) => ({ ...item, read: true })) })),
+      updatePartnerCapacity: (partnerId, capacityStatus) => set((state) => ({
+        partners: state.partners.map((partner) => partner.id === partnerId ? { ...partner, healthSignal: { ...(partner.healthSignal || {}), capacityStatus } } : partner),
+      })),
+
+      // --- Engagement & safety slice (Phase 7) ---
+      completedLessonIds: [],
+      currentStreakDays: 0,
+      lastCompletedDate: null,
+      fraudReports: [],
+      completeLesson: (lessonId) => set((state) => {
+        if (state.completedLessonIds.includes(lessonId)) return state;
+        const today = new Date().toISOString().slice(0, 10);
+        const last = state.lastCompletedDate;
+        const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+        const currentStreakDays = last === today ? state.currentStreakDays : last === yesterday ? state.currentStreakDays + 1 : 1;
+        return { completedLessonIds: [...state.completedLessonIds, lessonId], currentStreakDays, lastCompletedDate: today };
+      }),
+      addFraudReport: (report) => {
+        const id = `SAFE-${Date.now().toString().slice(-7)}`;
+        set((state) => ({ fraudReports: [{ ...report, id, submittedAt: new Date().toISOString(), status: 'Review queued' }, ...state.fraudReports] }));
+        return id;
+      },
 
       // DPDP-style consent ledger (Phase 4). Real providers replace only the service adapter.
       consentHistory: [],

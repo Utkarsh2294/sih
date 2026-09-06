@@ -1,18 +1,325 @@
 [
-  {"id":"mh-sca-pune","name":"Maharashtra Scheduled Castes Development Corporation","type":"SCA","latitude":18.5204,"longitude":73.8567,"district":"Pune","address":"Ambedkar Bhavan, Pune, Maharashtra","phone":"020-2612-8800","authorizedSchemeIds":["micro_finance","term_loan","education_loan_india","udyam_nidhi","mahila_samridhi_yojana"],"healthSignal":{"capacityStatus":"high","avgTurnaroundDays":7,"institutionalFlag":true}},
-  {"id":"pune-grameen","name":"Pune District Gramin Bank","type":"RRB","latitude":18.4925,"longitude":73.8685,"district":"Pune","address":"Swargate, Pune, Maharashtra","phone":"020-2444-2300","authorizedSchemeIds":["micro_finance","aajeevika_microfinance","mahila_samridhi_yojana"],"healthSignal":{"capacityStatus":"medium","avgTurnaroundDays":11,"institutionalFlag":true}},
-  {"id":"baramati-psb","name":"Bank of Maharashtra, Baramati","type":"PSB","latitude":18.1517,"longitude":74.5777,"district":"Pune","address":"Bhigwan Road, Baramati, Pune","phone":"02112-224500","authorizedSchemeIds":["term_loan","education_loan_india","education_loan_abroad","udyam_nidhi"],"healthSignal":{"capacityStatus":"low","avgTurnaroundDays":24,"institutionalFlag":null}},
-  {"id":"pune-mfi","name":"Sakhi Udaan Finance","type":"NBFC-MFI","latitude":18.5074,"longitude":73.8077,"district":"Pune","address":"Kothrud, Pune, Maharashtra","phone":"020-2546-4411","authorizedSchemeIds":["micro_finance","aajeevika_microfinance","mahila_samridhi_yojana"],"healthSignal":null},
-  {"id":"pimpri-sca","name":"Pimpri Chinchwad Social Finance Centre","type":"SCA","latitude":18.6298,"longitude":73.7997,"district":"Pune","address":"Nigdi, Pimpri Chinchwad, Pune","phone":"020-2765-1122","authorizedSchemeIds":["micro_finance","term_loan","udyam_nidhi"],"healthSignal":{"capacityStatus":"high","avgTurnaroundDays":8,"institutionalFlag":false}},
-  {"id":"pune-education","name":"Vidya Credit Partner, Pune","type":"PSB","latitude":18.5667,"longitude":73.7795,"district":"Pune","address":"Aundh, Pune, Maharashtra","phone":"020-2588-9900","authorizedSchemeIds":["education_loan_india","education_loan_abroad"],"healthSignal":{"capacityStatus":"medium","avgTurnaroundDays":13,"institutionalFlag":true}},
-  {"id":"mumbai-sca","name":"Dr. Babasaheb Ambedkar Financial Development Corporation","type":"SCA","latitude":19.0760,"longitude":72.8777,"district":"Mumbai","address":"Bandra East, Mumbai, Maharashtra","phone":"022-2640-1010","authorizedSchemeIds":["micro_finance","term_loan","education_loan_india","education_loan_abroad","udyam_nidhi"],"healthSignal":{"capacityStatus":"high","avgTurnaroundDays":6,"institutionalFlag":true}},
-  {"id":"mumbai-mfi","name":"Nayi Disha Microfinance","type":"NBFC-MFI","latitude":19.0176,"longitude":72.8562,"district":"Mumbai","address":"Dadar, Mumbai, Maharashtra","phone":"022-2437-8800","authorizedSchemeIds":["micro_finance","aajeevika_microfinance","mahila_samridhi_yojana"],"healthSignal":{"capacityStatus":"medium","avgTurnaroundDays":14,"institutionalFlag":false}},
-  {"id":"thana-bank","name":"Thane Citizen Bank","type":"PSB","latitude":19.2183,"longitude":72.9781,"district":"Mumbai","address":"Thane West, Mumbai Metropolitan Region","phone":"022-2547-3100","authorizedSchemeIds":["term_loan","education_loan_india","udyam_nidhi"],"healthSignal":null},
-  {"id":"navi-mumbai-rrb","name":"Konkan Gramin Bank","type":"RRB","latitude":19.0330,"longitude":73.0297,"district":"Mumbai","address":"Vashi, Navi Mumbai","phone":"022-2789-7010","authorizedSchemeIds":["micro_finance","term_loan","aajeevika_microfinance"],"healthSignal":{"capacityStatus":"low","avgTurnaroundDays":27,"institutionalFlag":null}},
-  {"id":"andheri-education","name":"Shiksha Sahayata Bank, Andheri","type":"PSB","latitude":19.1197,"longitude":72.8468,"district":"Mumbai","address":"Andheri East, Mumbai","phone":"022-2836-4010","authorizedSchemeIds":["education_loan_india","education_loan_abroad"],"healthSignal":{"capacityStatus":"high","avgTurnaroundDays":9,"institutionalFlag":true}},
-  {"id":"mumbai-women","name":"Pragati Mahila Finance","type":"NBFC-MFI","latitude":19.0431,"longitude":72.8630,"district":"Mumbai","address":"Worli, Mumbai, Maharashtra","phone":"022-2491-1166","authorizedSchemeIds":["mahila_samridhi_yojana","micro_finance","aajeevika_microfinance"],"healthSignal":null},
-  {"id":"nashik-sca","name":"Nashik Social Development Finance Centre","type":"SCA","latitude":19.9975,"longitude":73.7898,"district":"Nashik","address":"College Road, Nashik, Maharashtra","phone":"0253-257-3010","authorizedSchemeIds":["micro_finance","term_loan","udyam_nidhi","mahila_samridhi_yojana"],"healthSignal":{"capacityStatus":"medium","avgTurnaroundDays":12,"institutionalFlag":true}},
-  {"id":"nashik-rrb","name":"Godavari Gramin Bank","type":"RRB","latitude":20.0110,"longitude":73.7903,"district":"Nashik","address":"Panchavati, Nashik, Maharashtra","phone":"0253-250-0410","authorizedSchemeIds":["micro_finance","aajeevika_microfinance"],"healthSignal":{"capacityStatus":"high","avgTurnaroundDays":8,"institutionalFlag":false}},
-  {"id":"nashik-psb","name":"Nashik Enterprise Bank","type":"PSB","latitude":19.9848,"longitude":73.7767,"district":"Nashik","address":"Satpur, Nashik, Maharashtra","phone":"0253-235-9010","authorizedSchemeIds":["term_loan","education_loan_india","education_loan_abroad","udyam_nidhi"],"healthSignal":{"capacityStatus":"low","avgTurnaroundDays":21,"institutionalFlag":null}},
-  {"id":"nashik-mfi","name":"Sampoorna Sakhi Microcredit","type":"NBFC-MFI","latitude":20.0240,"longitude":73.8210,"district":"Nashik","address":"Nashik Road, Nashik, Maharashtra","phone":"0253-245-6720","authorizedSchemeIds":["micro_finance","mahila_samridhi_yojana"],"healthSignal":null}
+  {
+    "id": "mh-sca-pune",
+    "name": "Maharashtra Scheduled Castes Development Corporation",
+    "type": "SCA",
+    "latitude": 18.5204,
+    "longitude": 73.8567,
+    "district": "Pune",
+    "address": "Ambedkar Bhavan, Pune, Maharashtra",
+    "phone": "020-2612-8800",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "term_loan",
+      "education_loan_india",
+      "udyam_nidhi",
+      "mahila_samridhi_yojana"
+    ],
+    "healthSignal": {
+      "capacityStatus": "high",
+      "avgTurnaroundDays": 7,
+      "institutionalFlag": true
+    },
+    "isVerified": true
+  },
+  {
+    "id": "pune-grameen",
+    "name": "Pune District Gramin Bank",
+    "type": "RRB",
+    "latitude": 18.4925,
+    "longitude": 73.8685,
+    "district": "Pune",
+    "address": "Swargate, Pune, Maharashtra",
+    "phone": "020-2444-2300",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "aajeevika_microfinance",
+      "mahila_samridhi_yojana"
+    ],
+    "healthSignal": {
+      "capacityStatus": "medium",
+      "avgTurnaroundDays": 11,
+      "institutionalFlag": true
+    },
+    "isVerified": true
+  },
+  {
+    "id": "baramati-psb",
+    "name": "Bank of Maharashtra, Baramati",
+    "type": "PSB",
+    "latitude": 18.1517,
+    "longitude": 74.5777,
+    "district": "Pune",
+    "address": "Bhigwan Road, Baramati, Pune",
+    "phone": "02112-224500",
+    "authorizedSchemeIds": [
+      "term_loan",
+      "education_loan_india",
+      "education_loan_abroad",
+      "udyam_nidhi"
+    ],
+    "healthSignal": {
+      "capacityStatus": "low",
+      "avgTurnaroundDays": 24,
+      "institutionalFlag": null
+    },
+    "isVerified": false
+  },
+  {
+    "id": "pune-mfi",
+    "name": "Sakhi Udaan Finance",
+    "type": "NBFC-MFI",
+    "latitude": 18.5074,
+    "longitude": 73.8077,
+    "district": "Pune",
+    "address": "Kothrud, Pune, Maharashtra",
+    "phone": "020-2546-4411",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "aajeevika_microfinance",
+      "mahila_samridhi_yojana"
+    ],
+    "healthSignal": null,
+    "isVerified": false
+  },
+  {
+    "id": "pimpri-sca",
+    "name": "Pimpri Chinchwad Social Finance Centre",
+    "type": "SCA",
+    "latitude": 18.6298,
+    "longitude": 73.7997,
+    "district": "Pune",
+    "address": "Nigdi, Pimpri Chinchwad, Pune",
+    "phone": "020-2765-1122",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "term_loan",
+      "udyam_nidhi"
+    ],
+    "healthSignal": {
+      "capacityStatus": "high",
+      "avgTurnaroundDays": 8,
+      "institutionalFlag": false
+    },
+    "isVerified": false
+  },
+  {
+    "id": "pune-education",
+    "name": "Vidya Credit Partner, Pune",
+    "type": "PSB",
+    "latitude": 18.5667,
+    "longitude": 73.7795,
+    "district": "Pune",
+    "address": "Aundh, Pune, Maharashtra",
+    "phone": "020-2588-9900",
+    "authorizedSchemeIds": [
+      "education_loan_india",
+      "education_loan_abroad"
+    ],
+    "healthSignal": {
+      "capacityStatus": "medium",
+      "avgTurnaroundDays": 13,
+      "institutionalFlag": true
+    },
+    "isVerified": false
+  },
+  {
+    "id": "mumbai-sca",
+    "name": "Dr. Babasaheb Ambedkar Financial Development Corporation",
+    "type": "SCA",
+    "latitude": 19.076,
+    "longitude": 72.8777,
+    "district": "Mumbai",
+    "address": "Bandra East, Mumbai, Maharashtra",
+    "phone": "022-2640-1010",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "term_loan",
+      "education_loan_india",
+      "education_loan_abroad",
+      "udyam_nidhi"
+    ],
+    "healthSignal": {
+      "capacityStatus": "high",
+      "avgTurnaroundDays": 6,
+      "institutionalFlag": true
+    },
+    "isVerified": true
+  },
+  {
+    "id": "mumbai-mfi",
+    "name": "Nayi Disha Microfinance",
+    "type": "NBFC-MFI",
+    "latitude": 19.0176,
+    "longitude": 72.8562,
+    "district": "Mumbai",
+    "address": "Dadar, Mumbai, Maharashtra",
+    "phone": "022-2437-8800",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "aajeevika_microfinance",
+      "mahila_samridhi_yojana"
+    ],
+    "healthSignal": {
+      "capacityStatus": "medium",
+      "avgTurnaroundDays": 14,
+      "institutionalFlag": false
+    },
+    "isVerified": false
+  },
+  {
+    "id": "thana-bank",
+    "name": "Thane Citizen Bank",
+    "type": "PSB",
+    "latitude": 19.2183,
+    "longitude": 72.9781,
+    "district": "Mumbai",
+    "address": "Thane West, Mumbai Metropolitan Region",
+    "phone": "022-2547-3100",
+    "authorizedSchemeIds": [
+      "term_loan",
+      "education_loan_india",
+      "udyam_nidhi"
+    ],
+    "healthSignal": null,
+    "isVerified": false
+  },
+  {
+    "id": "navi-mumbai-rrb",
+    "name": "Konkan Gramin Bank",
+    "type": "RRB",
+    "latitude": 19.033,
+    "longitude": 73.0297,
+    "district": "Mumbai",
+    "address": "Vashi, Navi Mumbai",
+    "phone": "022-2789-7010",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "term_loan",
+      "aajeevika_microfinance"
+    ],
+    "healthSignal": {
+      "capacityStatus": "low",
+      "avgTurnaroundDays": 27,
+      "institutionalFlag": null
+    },
+    "isVerified": false
+  },
+  {
+    "id": "andheri-education",
+    "name": "Shiksha Sahayata Bank, Andheri",
+    "type": "PSB",
+    "latitude": 19.1197,
+    "longitude": 72.8468,
+    "district": "Mumbai",
+    "address": "Andheri East, Mumbai",
+    "phone": "022-2836-4010",
+    "authorizedSchemeIds": [
+      "education_loan_india",
+      "education_loan_abroad"
+    ],
+    "healthSignal": {
+      "capacityStatus": "high",
+      "avgTurnaroundDays": 9,
+      "institutionalFlag": true
+    },
+    "isVerified": true
+  },
+  {
+    "id": "mumbai-women",
+    "name": "Pragati Mahila Finance",
+    "type": "NBFC-MFI",
+    "latitude": 19.0431,
+    "longitude": 72.863,
+    "district": "Mumbai",
+    "address": "Worli, Mumbai, Maharashtra",
+    "phone": "022-2491-1166",
+    "authorizedSchemeIds": [
+      "mahila_samridhi_yojana",
+      "micro_finance",
+      "aajeevika_microfinance"
+    ],
+    "healthSignal": null,
+    "isVerified": false
+  },
+  {
+    "id": "nashik-sca",
+    "name": "Nashik Social Development Finance Centre",
+    "type": "SCA",
+    "latitude": 19.9975,
+    "longitude": 73.7898,
+    "district": "Nashik",
+    "address": "College Road, Nashik, Maharashtra",
+    "phone": "0253-257-3010",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "term_loan",
+      "udyam_nidhi",
+      "mahila_samridhi_yojana"
+    ],
+    "healthSignal": {
+      "capacityStatus": "medium",
+      "avgTurnaroundDays": 12,
+      "institutionalFlag": true
+    },
+    "isVerified": true
+  },
+  {
+    "id": "nashik-rrb",
+    "name": "Godavari Gramin Bank",
+    "type": "RRB",
+    "latitude": 20.011,
+    "longitude": 73.7903,
+    "district": "Nashik",
+    "address": "Panchavati, Nashik, Maharashtra",
+    "phone": "0253-250-0410",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "aajeevika_microfinance"
+    ],
+    "healthSignal": {
+      "capacityStatus": "high",
+      "avgTurnaroundDays": 8,
+      "institutionalFlag": false
+    },
+    "isVerified": true
+  },
+  {
+    "id": "nashik-psb",
+    "name": "Nashik Enterprise Bank",
+    "type": "PSB",
+    "latitude": 19.9848,
+    "longitude": 73.7767,
+    "district": "Nashik",
+    "address": "Satpur, Nashik, Maharashtra",
+    "phone": "0253-235-9010",
+    "authorizedSchemeIds": [
+      "term_loan",
+      "education_loan_india",
+      "education_loan_abroad",
+      "udyam_nidhi"
+    ],
+    "healthSignal": {
+      "capacityStatus": "low",
+      "avgTurnaroundDays": 21,
+      "institutionalFlag": null
+    },
+    "isVerified": false
+  },
+  {
+    "id": "nashik-mfi",
+    "name": "Sampoorna Sakhi Microcredit",
+    "type": "NBFC-MFI",
+    "latitude": 20.024,
+    "longitude": 73.821,
+    "district": "Nashik",
+    "address": "Nashik Road, Nashik, Maharashtra",
+    "phone": "0253-245-6720",
+    "authorizedSchemeIds": [
+      "micro_finance",
+      "mahila_samridhi_yojana"
+    ],
+    "healthSignal": null,
+    "isVerified": false
+  }
 ]

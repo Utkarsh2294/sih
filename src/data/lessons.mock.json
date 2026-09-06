@@ -1,0 +1,114 @@
+[
+  {
+    "id": "interest-rate-basics",
+    "title": "Interest Rate Basics",
+    "durationSeconds": 75,
+    "tags": ["interest-rate", "loan-cost"],
+    "slides": [
+      "Interest is the extra amount paid for using borrowed money.",
+      "A lower rate can reduce your monthly EMI and the total cost of the loan.",
+      "Always compare the rate, tenure, and processing fee before choosing a partner."
+    ],
+    "question": "What usually reduces the total cost of a loan?",
+    "options": ["Lower interest rate", "Longer queue", "Paying an agent"],
+    "answer": "Lower interest rate"
+  },
+  {
+    "id": "moratorium-meaning",
+    "title": "What Is Moratorium?",
+    "durationSeconds": 70,
+    "tags": ["moratorium", "repayment"],
+    "slides": [
+      "A moratorium is a short pause before regular repayment begins.",
+      "It can help when your business or course needs time before income starts.",
+      "Interest may still build during this period, so ask clearly before signing."
+    ],
+    "question": "A moratorium is best understood as:",
+    "options": ["A repayment pause", "A free grant", "A middleman fee"],
+    "answer": "A repayment pause"
+  },
+  {
+    "id": "documents-ready",
+    "title": "Keep Documents Ready",
+    "durationSeconds": 65,
+    "tags": ["documents", "application"],
+    "slides": [
+      "Most applications need identity, address, income, and caste certificates.",
+      "Uploading clear documents early can reduce back-and-forth with the branch.",
+      "Only share documents after reading the consent purpose."
+    ],
+    "question": "When should you share documents?",
+    "options": ["After reading consent", "With any stranger", "Only on paper"],
+    "answer": "After reading consent"
+  },
+  {
+    "id": "avoid-middlemen",
+    "title": "Avoid Middlemen",
+    "durationSeconds": 80,
+    "tags": ["fraud-awareness", "safety"],
+    "slides": [
+      "VittSetu does not charge citizens for checking schemes or starting applications.",
+      "Do not pay anyone who promises guaranteed approval.",
+      "Report suspicious agents from the safety banner or your profile."
+    ],
+    "question": "What should you do if someone asks for money to submit?",
+    "options": ["Report it", "Pay quickly", "Share OTP"],
+    "answer": "Report it"
+  },
+  {
+    "id": "credit-score-basics",
+    "title": "Credit Score Basics",
+    "durationSeconds": 90,
+    "tags": ["credit-score-basics", "repayment"],
+    "slides": [
+      "A credit score reflects past repayment behavior.",
+      "Paying EMIs on time helps build a stronger credit history.",
+      "If a score is unavailable, ask the partner what alternate checks they use."
+    ],
+    "question": "What helps build credit history?",
+    "options": ["Paying EMIs on time", "Missing payments", "Changing phone numbers"],
+    "answer": "Paying EMIs on time"
+  },
+  {
+    "id": "choose-partner",
+    "title": "Nearest Is Not Always Best",
+    "durationSeconds": 70,
+    "tags": ["partner-health", "routing"],
+    "slides": [
+      "A nearby branch may still have low capacity.",
+      "VittSetu ranks partners using availability signals and distance together.",
+      "Choose a partner that can realistically process your application."
+    ],
+    "question": "What should you check besides distance?",
+    "options": ["Capacity signal", "Building color", "Queue rumors"],
+    "answer": "Capacity signal"
+  },
+  {
+    "id": "grievance-rights",
+    "title": "Know Your Grievance Rights",
+    "durationSeconds": 65,
+    "tags": ["grievance", "transparency"],
+    "slides": [
+      "If your application stalls, you can raise a grievance inside VittSetu.",
+      "The tracker shows a service deadline so you know when to follow up.",
+      "Keep your case ID for future reference."
+    ],
+    "question": "Why is a case ID useful?",
+    "options": ["For follow-up", "For paying fees", "For hiding complaints"],
+    "answer": "For follow-up"
+  },
+  {
+    "id": "sign-carefully",
+    "title": "Sign Carefully",
+    "durationSeconds": 60,
+    "tags": ["esign", "consent"],
+    "slides": [
+      "A signature confirms that you understand and agree to submit.",
+      "Read the summary before signing any real application.",
+      "The VittSetu signature pad in this demo is only for prototype flow."
+    ],
+    "question": "Before signing, you should:",
+    "options": ["Read the summary", "Skip all details", "Share your OTP"],
+    "answer": "Read the summary"
+  }
+]

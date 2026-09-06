@@ -1,0 +1,6 @@
+[
+  { "id": "trust-pune-1", "partnerId": "mh-sca-pune", "schemeType": "Micro Finance", "approxLocation": { "lat": 18.531, "lng": 73.844 }, "monthLabel": "Last 6 months", "countLabel": "5 beneficiaries" },
+  { "id": "trust-pune-2", "partnerId": "pimpri-sca", "schemeType": "Term Loan", "approxLocation": { "lat": 18.621, "lng": 73.812 }, "monthLabel": "Last 6 months", "countLabel": "3 beneficiaries" },
+  { "id": "trust-mumbai-1", "partnerId": "mumbai-sca", "schemeType": "Education Loan", "approxLocation": { "lat": 19.082, "lng": 72.886 }, "monthLabel": "Last 6 months", "countLabel": "4 beneficiaries" },
+  { "id": "trust-nashik-1", "partnerId": "nashik-rrb", "schemeType": "Aajeevika Microfinance", "approxLocation": { "lat": 20.018, "lng": 73.801 }, "monthLabel": "Last 6 months", "countLabel": "6 beneficiaries" }
+]
