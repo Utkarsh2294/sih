@@ -17,6 +17,8 @@ const ConsentFlow = lazy(() => import('./pages/ConsentFlow'));
 const SchemeComparison = lazy(() => import('./pages/SchemeComparison'));
 const PartnerReport = lazy(() => import('./pages/PartnerReport'));
 const ApplicationTracker = lazy(() => import('./pages/ApplicationTracker'));
+const PartnerDashboard = lazy(() => import('./pages/PartnerDashboard'));
+const PolicyDashboard = lazy(() => import('./pages/PolicyDashboard'));
 
 // Minimal skeleton loader for Suspense fallback
 const SkeletonLoader = () => (
@@ -59,6 +61,8 @@ const App = () => {
             <Route path="/consent" element={<ConsentFlow />} />
             <Route path="/compare-schemes" element={<SchemeComparison />} />
             <Route path="/partner-locator/:partnerId/report" element={<PartnerReport />} />
+            <Route path="/partner-dashboard" element={<PartnerDashboard />} />
+            <Route path="/policy-dashboard" element={<PolicyDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

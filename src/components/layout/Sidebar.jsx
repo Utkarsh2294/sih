@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Home, Search, Calculator, MapPin, FileText, BookOpen, User } from 'lucide-react';
+import { Home, Search, Calculator, MapPin, FileText, BookOpen, User, BarChart3, BriefcaseBusiness } from 'lucide-react';
+import useAppStore from '../../store/useAppStore';
 
 const navItems = [
   { path: '/', icon: Home, labelKey: 'layout.sidebar.home', defaultLabel: 'Home' },
@@ -16,9 +17,14 @@ const secondaryItems = [
   { path: '/vittgyan', icon: BookOpen, labelKey: 'layout.sidebar.vittgyan', defaultLabel: 'VittGyan' },
   { path: '/profile', icon: User, labelKey: 'layout.sidebar.profile', defaultLabel: 'Profile' },
 ];
+const staffItems = [
+  { path: '/partner-dashboard', icon: BriefcaseBusiness, labelKey: 'layout.sidebar.partner_dashboard', defaultLabel: 'Partner Dashboard', roles: ['partner'] },
+  { path: '/policy-dashboard', icon: BarChart3, labelKey: 'layout.sidebar.policy_dashboard', defaultLabel: 'Policy Dashboard', roles: ['policy'] },
+];
 
 const Sidebar = () => {
   const { t } = useTranslation();
+  const role = useAppStore((state) => state.role);
 
   const renderLinks = (items) => (
     <ul className="space-y-1">
@@ -61,6 +67,10 @@ const Sidebar = () => {
           </div>
           {renderLinks(secondaryItems)}
         </div>
+        {staffItems.some((item) => item.roles.includes(role)) && <div>
+          <div className="px-4 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Staff tools</div>
+          {renderLinks(staffItems.filter((item) => item.roles.includes(role)))}
+        </div>}
       </nav>
     </aside>
   );

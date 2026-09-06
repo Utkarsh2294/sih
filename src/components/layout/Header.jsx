@@ -11,6 +11,8 @@ const Header = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const notifications = useAppStore((state) => state.notifications);
   const markNotificationsRead = useAppStore((state) => state.markNotificationsRead);
+  const role = useAppStore((state) => state.role);
+  const setRole = useAppStore((state) => state.setRole);
   const unread = notifications.filter((item) => !item.read).length;
 
   return (
@@ -26,6 +28,14 @@ const Header = () => {
         
         <div className="flex items-center space-x-1 md:space-x-3">
           <LanguageSwitcher />
+          <label className="hidden items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-300 sm:flex">
+            <span>View</span>
+            <select value={role} onChange={(event) => setRole(event.target.value)} className="min-h-9 rounded-lg border border-slate-300 bg-white px-2 text-slate-800 dark:border-slate-600 dark:bg-slate-800 dark:text-white" aria-label="Switch prototype role">
+              <option value="citizen">Citizen</option>
+              <option value="partner">Partner staff</option>
+              <option value="policy">NSFDC policy</option>
+            </select>
+          </label>
           <ThemeToggle />
           <div className="relative">
             <button onClick={() => { setShowNotifications(!showNotifications); markNotificationsRead(); }} className="relative p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500" aria-label="View notifications">
