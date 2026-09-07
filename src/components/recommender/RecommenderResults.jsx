@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, SearchX } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SkeletonLoader from '../ui/SkeletonLoader';
 import Card from '../ui/Card';
@@ -142,6 +142,7 @@ export default function RecommenderResults({ inputs, results, onStartOver, onSel
     return (
       <div className="max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
         <EmptyState
+          icon={SearchX}
           title={t('recommender.results.noMatchTitle', 'No exact matches found')}
           description={explainNoMatch(inputs) || t('recommender.results.noMatchDesc', 'Based on your inputs, we couldn\'t find a scheme that perfectly matches your criteria. Try adjusting your requirements.')}
           action={

@@ -33,11 +33,11 @@ export default function SchemeRecommender() {
 
   // Steps configuration
   const steps = [
-    { label: t('recommender.steps.purpose', 'Purpose') },
-    { label: t('recommender.steps.details', 'Details') },
-    { label: t('recommender.steps.income', 'Income') },
-    { label: t('recommender.steps.category', 'Category') },
-    { label: t('recommender.steps.disability', 'Disability') },
+    { label: t('recommender.stepNames.purpose', 'Purpose') },
+    { label: t('recommender.stepNames.details', 'Details') },
+    { label: t('recommender.stepNames.income', 'Income') },
+    { label: t('recommender.stepNames.category', 'Category') },
+    { label: t('recommender.stepNames.disability', 'Disability') },
   ];
 
   const handleNext = () => {
@@ -45,8 +45,15 @@ export default function SchemeRecommender() {
       setCurrentStep((prev) => prev + 1);
     } else {
       // Final step completed
-      setRecommenderInputs(localInputs);
-      const results = getEligibleSchemes(localInputs);
+      const engineInputs = {
+        ...localInputs,
+        annualFamilyIncome: localInputs.income,
+        applicantCategory: localInputs.category,
+        hasDisability: localInputs.disability === 'yes',
+        gender: localInputs.gender || null
+      };
+      setRecommenderInputs(engineInputs);
+      const results = getEligibleSchemes(engineInputs);
       setRecommenderResult(results);
       setCurrentStep(5); // 5 represents Results
     }
