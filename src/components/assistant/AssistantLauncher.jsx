@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Bot, Mic, MicOff, Send, Volume2, VolumeX } from 'lucide-react';
 import useAppStore from '../../store/useAppStore';
 import { getAssistantResponse } from '../../services/assistantService';
+import { synthesizeSpeech } from '../../services/bhashiniService';
 import BottomSheet from '../ui/BottomSheet';
 
 const initialMessages = [{ id: 'welcome', role: 'assistant', text: 'Namaste! Ask me about schemes, EMI, or loan terms.', time: new Date() }];
@@ -17,7 +18,7 @@ const AssistantLauncher = () => {
   const [listening, setListening] = useState(false); const [supported, setSupported] = useState(false); const recognitionRef = useRef(null); const threadRef = useRef(null);
   useEffect(() => { setSupported(Boolean(window.SpeechRecognition || window.webkitSpeechRecognition)); }, []);
   useEffect(() => { threadRef.current?.scrollTo({ top: threadRef.current.scrollHeight, behavior: 'smooth' }); }, [messages, open]);
-  const speak = (text) => { if (!muted && window.speechSynthesis) { window.speechSynthesis.cancel(); const utterance = new SpeechSynthesisUtterance(text); utterance.lang = language === 'hi' ? 'hi-IN' : 'en-IN'; window.speechSynthesis.speak(utterance); } };
+  const speak = async (text) => { if (!muted && window.speechSynthesis) { window.speechSynthesis.cancel(); try { const audio = new Audio(await synthesizeSpeech({ text, language })); await audio.play(); return; } catch (error) { console.warn('Bhashini assistant voice unavailable; using device voice instead.', error); } const utterance = new SpeechSynthesisUtterance(text); utterance.lang = language === 'hi' ? 'hi-IN' : language === 'mr' ? 'mr-IN' : 'en-IN'; window.speechSynthesis.speak(utterance); } };
   const send = async (message = draft) => {
     const clean = message.trim(); if (!clean) return;
     setMessages((current) => [...current, { id: `${Date.now()}-user`, role: 'user', text: clean, time: new Date() }]); setDraft('');

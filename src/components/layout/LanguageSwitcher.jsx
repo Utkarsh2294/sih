@@ -2,6 +2,9 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Search, Check, X } from 'lucide-react';
 import useAppStore from '../../store/useAppStore';
+import translationEN from '../../locales/en/translation.json';
+import { getBhashiniStatus, translateResourceBundle } from '../../services/bhashiniService';
+import { toast } from '../../hooks/useToast';
 
 const languages = [
   { code: 'as', label: 'Assamese (অসমীয়া)', short: 'AS' },
@@ -34,6 +37,8 @@ const LanguageSwitcher = () => {
   const { language, setLanguage } = useAppStore();
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState('');
+  const [isTranslating, setIsTranslating] = useState(false);
+  const [isBhashiniConfigured, setIsBhashiniConfigured] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -46,14 +51,28 @@ const LanguageSwitcher = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => { getBhashiniStatus().then(setIsBhashiniConfigured).catch(() => setIsBhashiniConfigured(false)); }, []);
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
     setSearch('');
   };
 
-  const handleLanguageChange = (lang) => {
+  const handleLanguageChange = async (lang) => {
+    if (lang === language) return setIsOpen(false);
+    if (lang !== 'en' && isBhashiniConfigured) {
+      try {
+        setIsTranslating(true);
+        const translated = await translateResourceBundle({ resource: translationEN, targetLanguage: lang });
+        i18n.addResourceBundle(lang, 'translation', translated, true, true);
+      } catch (error) {
+        toast.error(error.message || 'Bhashini could not translate this language right now.');
+      } finally {
+        setIsTranslating(false);
+      }
+    }
     setLanguage(lang);
-    i18n.changeLanguage(lang);
+    await i18n.changeLanguage(lang);
     setIsOpen(false);
     setSearch('');
   };
@@ -107,14 +126,14 @@ const LanguageSwitcher = () => {
               filteredLanguages.map((lang) => (
                 <li key={lang.code}>
                   <button
-                    onClick={() => handleLanguageChange(lang.code)}
+                    onClick={() => handleLanguageChange(lang.code)} disabled={isTranslating}
                     className={`w-full text-left px-4 py-2.5 text-sm flex items-center justify-between ${
                       language === lang.code
                         ? 'bg-primary-50 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 font-bold'
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                   >
-                    <span>{lang.label}</span>
+                    <span>{isTranslating ? 'Translating...' : lang.label}</span>
                     {language === lang.code && <Check className="w-4 h-4" />}
                   </button>
                 </li>
